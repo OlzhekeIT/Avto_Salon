@@ -5,6 +5,7 @@
 
 {% load static %}
 {% load humanize %}
+{% load custom_tags %}
 <!-- Log on to codeastro.com for more projects -->
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
@@ -36,7 +37,8 @@
                             </h6>
                         </div>
                         <div class="pull-right">
-                            <h3><span>$ {{single_car.price | intcomma}}</span></h3>
+{% load custom_tags %}
+                            <h3><span>{{single_car.price | kzt_format }}</span></h3>
                         </div>
                     </div>
                     <div id="carDetailsSlider" class="carousel car-details-sliders slide mb-40">

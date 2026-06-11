@@ -4,6 +4,7 @@
 {% block title %} | Search Result {% endblock %}
 {% block content %}
 {% load humanize %}
+{% load custom_tags %}
 <!-- Banner start -->
 <!-- Log on to codeastro.com for more projects -->
 <div class="sub-banner overview-bgi">
@@ -82,7 +83,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <div class="range-slider">
-                                    <div data-min="0" data-max="150000" data-unit="USD" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                    <div data-min="0" data-max="150000" data-unit="KZT" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
@@ -182,7 +183,8 @@
                             <p class="cartype">{{car.body_style}}</p>
                         </div>
                         <div class="pull-right">
-                            <p class="price">$ {{car.price | intcomma}}</p>
+{% load custom_tags %}
+                            <p class="price">{{car.price | kzt_format }}</p>
                         </div>
                     </div>
                 </div>

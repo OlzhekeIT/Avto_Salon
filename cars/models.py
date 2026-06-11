@@ -117,5 +117,18 @@ class Car(models.Model):
     is_featured = models.BooleanField(default=False)
     created_date = models.DateTimeField(default=datetime.now, blank=True)
 
+    def clean(self):
+        from django.core.exceptions import ValidationError
+        if self.car_photo:
+            photo_name = self.car_photo.name.lower()
+            title = self.car_title.lower()
+            # Simple keyword check
+            keywords = ['ford', 'ferrari', 'tesla', 'lamborghini', 'toyota', 'jaguar', 'mustang']
+            for kw in keywords:
+                if kw in title and kw not in photo_name and ('car-' not in photo_name and 'photos' not in photo_name):
+                    # This is a very loose check because photos often have random names
+                    pass 
+        super().clean()
+
     def __str__(self):
         return self.car_title
