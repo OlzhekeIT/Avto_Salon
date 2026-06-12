@@ -12,8 +12,20 @@ def cars(request):
     model_search = Car.objects.values_list('model', flat=True).distinct()
     brand_search = Car.objects.values_list('brand', flat=True).distinct()
     city_search = Car.objects.values_list('city', flat=True).distinct()
-    year_search = Car.objects.values_list('year', flat=True).distinct()
-    body_style_search = Car.objects.values_list('body_style', flat=True).distinct()
+    
+    year_search = [r for r in range(1980, (datetime.now().year+1))]
+    body_style_search = [
+        ('Sedan', 'Седан'),
+        ('SUV', 'Внедорожник'),
+        ('Crossover', 'Кроссовер'),
+        ('Hatchback', 'Хэтчбек'),
+        ('Universal', 'Универсал'),
+        ('Minivan', 'Минивэн'),
+        ('Coupe', 'Купе'),
+        ('Pickup', 'Пикап'),
+        ('Liftback', 'Лифтбек'),
+        ('Cabriolet', 'Кабриолет'),
+    ]
 
     data = {
         'cars': paged_cars,
@@ -40,8 +52,20 @@ def search(request):
     model_search = Car.objects.values_list('model', flat=True).distinct()
     brand_search = Car.objects.values_list('brand', flat=True).distinct()
     city_search = Car.objects.values_list('city', flat=True).distinct()
-    year_search = Car.objects.values_list('year', flat=True).distinct()
-    body_style_search = Car.objects.values_list('body_style', flat=True).distinct()
+    
+    year_search = [r for r in range(1980, (datetime.now().year+1))]
+    body_style_search = [
+        ('Sedan', 'Седан'),
+        ('SUV', 'Внедорожник'),
+        ('Crossover', 'Кроссовер'),
+        ('Hatchback', 'Хэтчбек'),
+        ('Universal', 'Универсал'),
+        ('Minivan', 'Минивэн'),
+        ('Coupe', 'Купе'),
+        ('Pickup', 'Пикап'),
+        ('Liftback', 'Лифтбек'),
+        ('Cabriolet', 'Кабриолет'),
+    ]
     transmission_search = Car.objects.values_list('transmission', flat=True).distinct()
 
     if 'keyword' in request.GET:

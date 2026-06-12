@@ -11,11 +11,27 @@ def home(request):
     teams = Team.objects.all()
     featured_cars = Car.objects.order_by('-created_date').filter(is_featured=True)
     all_cars = Car.objects.order_by('-created_date')
+    
+    # Get choices from model
     model_search = Car.objects.values_list('model', flat=True).distinct()
     brand_search = Car.objects.values_list('brand', flat=True).distinct()
     city_search = Car.objects.values_list('city', flat=True).distinct()
-    year_search = Car.objects.values_list('year', flat=True).distinct()
-    body_style_search = Car.objects.values_list('body_style', flat=True).distinct()
+    
+    # Instead of pulling from DB, we can use the choices from the model to be more "Kazakhstani" and complete
+    year_search = [r for r in range(1980, (datetime.now().year+1))]
+    body_style_search = [
+        ('Sedan', 'Седан'),
+        ('SUV', 'Внедорожник'),
+        ('Crossover', 'Кроссовер'),
+        ('Hatchback', 'Хэтчбек'),
+        ('Universal', 'Универсал'),
+        ('Minivan', 'Минивэн'),
+        ('Coupe', 'Купе'),
+        ('Pickup', 'Пикап'),
+        ('Liftback', 'Лифтбек'),
+        ('Cabriolet', 'Кабриолет'),
+    ]
+    
     data = {
         'teams': teams,
         'featured_cars': featured_cars,

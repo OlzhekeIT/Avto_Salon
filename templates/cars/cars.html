@@ -184,8 +184,8 @@
                             <div class="form-group">
                                 <select class="form-control search-fields" name="body_style">
                                     <option selected="true" disabled="disabled">Көлік түрі</option>
-                                    {% for body_style in body_style_search %}
-                                      <option value="{{body_style}}">{{body_style}}</option>
+                                    {% for key, value in body_style_search %}
+                                      <option value="{{key}}">{{value}}</option>
                                     {% endfor %}
                                 </select>
                             </div>
