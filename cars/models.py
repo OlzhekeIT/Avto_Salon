@@ -67,8 +67,21 @@ class Car(models.Model):
     )
 
     year_choice = []
-    for r in range(2000, (datetime.now().year+1)):
+    for r in range(1980, (datetime.now().year+1)):
         year_choice.append((r,r))
+
+    body_style_choices = (
+        ('Sedan', 'Седан'),
+        ('SUV', 'Внедорожник'),
+        ('Crossover', 'Кроссовер'),
+        ('Hatchback', 'Хэтчбек'),
+        ('Universal', 'Универсал'),
+        ('Minivan', 'Минивэн'),
+        ('Coupe', 'Купе'),
+        ('Pickup', 'Пикап'),
+        ('Liftback', 'Лифтбек'),
+        ('Cabriolet', 'Кабриолет'),
+    )
 
     features_choices = (
         ('Cruise Control', 'Cruise Control'),
@@ -110,7 +123,7 @@ class Car(models.Model):
     car_photo_3 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     car_photo_4 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     features = MultiSelectField(choices=features_choices)
-    body_style = models.CharField(max_length=100)
+    body_style = models.CharField(choices=body_style_choices, max_length=100)
     engine = models.CharField(max_length=100)
     transmission = models.CharField(max_length=100)
     interior = models.CharField(max_length=100)
