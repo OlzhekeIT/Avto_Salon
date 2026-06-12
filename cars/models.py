@@ -29,6 +29,43 @@ class Car(models.Model):
         ('ULY', 'Ulytau Region'),
     )
 
+    brand_choice = (
+        ('Toyota', 'Toyota'),
+        ('Lexus', 'Lexus'),
+        ('Hyundai', 'Hyundai'),
+        ('Kia', 'Kia'),
+        ('Chevrolet', 'Chevrolet'),
+        ('BMW', 'BMW'),
+        ('Mercedes-Benz', 'Mercedes-Benz'),
+        ('Audi', 'Audi'),
+        ('Volkswagen', 'Volkswagen'),
+        ('Porsche', 'Porsche'),
+        ('Chery', 'Chery'),
+        ('Haval', 'Haval'),
+        ('Geely', 'Geely'),
+        ('BYD', 'BYD'),
+        ('Zeekr', 'Zeekr'),
+        ('Changan', 'Changan'),
+        ('JAC', 'JAC'),
+        ('Jetour', 'Jetour'),
+        ('Exeed', 'Exeed'),
+        ('Hongqi', 'Hongqi'),
+        ('Tank', 'Tank'),
+        ('Lada', 'Lada'),
+        ('Nissan', 'Nissan'),
+        ('Mitsubishi', 'Mitsubishi'),
+        ('Mazda', 'Mazda'),
+        ('Honda', 'Honda'),
+        ('Subaru', 'Subaru'),
+        ('Suzuki', 'Suzuki'),
+        ('Tesla', 'Tesla'),
+        ('Ford', 'Ford'),
+        ('Cadillac', 'Cadillac'),
+        ('Jeep', 'Jeep'),
+        ('Land Rover', 'Land Rover'),
+        ('Range Rover', 'Range Rover'),
+    )
+
     year_choice = []
     for r in range(2000, (datetime.now().year+1)):
         year_choice.append((r,r))
@@ -58,6 +95,7 @@ class Car(models.Model):
     )
 
     car_title = models.CharField(max_length=255)
+    brand = models.CharField(choices=brand_choice, max_length=100, default='Toyota')
     state = models.CharField(choices=state_choice, max_length=100)
     city = models.CharField(max_length=100)
     color = models.CharField(max_length=100)

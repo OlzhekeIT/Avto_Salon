@@ -142,15 +142,24 @@
                 <div class="sidebar-right">
                     <!-- Advanced search start -->
                     <div class="widget advanced-search2">
-                        <h3 class="sidebar-title">Search Cars</h3>
+                        <h3 class="sidebar-title">Көлік іздеу</h3>
                         <form action="{% url 'search' %}" method="">
                             <div class="form-group">
-                                <input type="text" name="keyword" placeholder="Search by name" class="form-control">
+                                <input type="text" name="keyword" placeholder="Аты бойынша іздеу" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <select class="form-control search-fields" name="brand">
+                                    <option selected="true" disabled="disabled">Марка</option>
+                                    {% for brand in brand_search %}
+                                      <option value="{{brand}}">{{brand}}</option>
+                                    {% endfor %}
+                                </select>
                             </div>
 
                             <div class="form-group">
                                 <select class="form-control search-fields" name="model">
-                                    <option selected="true" disabled="disabled">Model</option>
+                                    <option selected="true" disabled="disabled">Модель</option>
                                     {% for model in model_search %}
                                       <option value="{{model}}">{{model}}</option>
                                     {% endfor %}
@@ -158,7 +167,7 @@
                             </div>
                             <div class="form-group">
                                 <select class="form-control search-fields" name="city">
-                                    <option selected="true" disabled="disabled">Location</option>
+                                    <option selected="true" disabled="disabled">Орналасқан жері</option>
                                     {% for city in city_search %}
                                       <option value="{{city}}">{{city}}</option>
                                     {% endfor %}
@@ -166,7 +175,7 @@
                             </div>
                             <div class="form-group">
                                 <select class="form-control search-fields" name="year">
-                                    <option selected="true" disabled="disabled">Year</option>
+                                    <option selected="true" disabled="disabled">Жылы</option>
                                     {% for year in year_search %}
                                       <option value="{{year}}">{{year}}</option>
                                     {% endfor %}
@@ -174,20 +183,20 @@
                             </div>
                             <div class="form-group">
                                 <select class="form-control search-fields" name="body_style">
-                                    <option selected="true" disabled="disabled">Select Type Of Car</option>
+                                    <option selected="true" disabled="disabled">Көлік түрі</option>
                                     {% for body_style in body_style_search %}
                                       <option value="{{body_style}}">{{body_style}}</option>
                                     {% endfor %}
                                 </select>
                             </div>
                             <div class="range-slider clearfix">
-                                            <label>Price</label>
+                                            <label>Бағасы</label>
                                             <div data-min="0" data-max="150000"  data-min-name="min_price" data-max-name="max_price" data-unit="KZT" class="range-slider-ui ui-slider" aria-disabled="false"></div>
                                             <div class="clearfix"></div>
                                         </div>
                             <div class="form-group">
                                 <button class="btn btn-block button-theme btn-md">
-                                    <i class="fa fa-search"></i> Search
+                                    <i class="fa fa-search"></i> Іздеу
                                 </button>
                             </div>
                         </form>
@@ -195,14 +204,12 @@
 
                     <!-- Question start -->
                     <div class="widget question widget-3">
-                        <h5 class="sidebar-title">Follow Us On:</h5>
+                        <h5 class="sidebar-title">Бізге жазылыңыз:</h5>
                         <div class="social-list clearfix">
                             <ul>
-                                <li><a href="https://codeastro.com/" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="https://codeastro.com/" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="https://codeastro.com/" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="https://codeastro.com/" class="rss-bg"><i class="fa fa-rss"></i></a></li>
-                                <li><a href="https://codeastro.com/" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="https://wa.me/77056177841" target="_blank" class="facebook-bg"><i class="fa fa-whatsapp"></i></a></li>
+                                <li><a href="https://t.me/77771823938" target="_blank" class="twitter-bg"><i class="fa fa-paper-plane"></i></a></li>
+                                <li><a href="https://www.instagram.com/moshavto?igsh=MXN5aTFlYWJidjUweQ==" target="_blank" class="google-bg"><i class="fa fa-instagram"></i></a></li>
                             </ul>
                         </div>
 						<!-- Log on to codeastro.com for more projects -->

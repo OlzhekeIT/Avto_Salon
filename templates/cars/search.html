@@ -29,8 +29,18 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
+                                <select class="selectpicker search-fields" name="brand">
+                                    <option selected='selected' disabled='disabled'>Марка</option>
+                                    {% for brand in brand_search %}
+                                      <option value="{{brand}}">{{brand}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                            <div class="form-group">
                                 <select class="selectpicker search-fields" name="model">
-                                    <option selected='selected' disabled='disabled'>Select Model</option>
+                                    <option selected='selected' disabled='disabled'>Модель</option>
                                     {% for model in model_search %}
                                       <option value="{{model}}">{{model}}</option>
                                     {% endfor %}
@@ -40,7 +50,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <select class="selectpicker search-fields" name="city">
-                                    <option selected='selected' disabled='disabled'>Select Location</option>
+                                    <option selected='selected' disabled='disabled'>Орналасқан жері</option>
                                     {% for city in city_search %}
                                       <option value="{{city}}">{{city}}</option>
                                     {% endfor %}
@@ -50,7 +60,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <select class="selectpicker search-fields" name="year">
-                                    <option selected='selected' disabled='disabled'>Select Year</option>
+                                    <option selected='selected' disabled='disabled'>Жылы</option>
                                     {% for year in year_search %}
                                       <option value="{{year}}">{{year}}</option>
                                     {% endfor %}
@@ -63,7 +73,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <select class="selectpicker search-fields" name="body_style">
-                                    <option selected='selected' disabled='disabled'>Select Type Of Car</option>
+                                    <option selected='selected' disabled='disabled'>Көлік түрі</option>
                                     {% for body_style in body_style_search %}
                                       <option value="{{body_style}}">{{body_style}}</option>
                                     {% endfor %}
@@ -73,7 +83,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <select class="selectpicker search-fields" name="transmission">
-                                    <option selected='selected' disabled='disabled'>Transmission</option>
+                                    <option selected='selected' disabled='disabled'>Трансмиссия</option>
                                     {% for transmission in transmission_search %}
                                       <option value="{{transmission}}">{{transmission}}</option>
                                     {% endfor %}
@@ -92,7 +102,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <button class="btn btn-block button-theme btn-md">
-                                    <i class="fa fa-search"></i>Filter Cars
+                                    <i class="fa fa-search"></i>Іздеу
                                 </button>
                             </div>
                         </div>
